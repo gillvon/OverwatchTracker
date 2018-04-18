@@ -1,0 +1,201 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);@font-face {
+  font-family: OverwatchFont;
+  src: url(/fonts/big_noodle_titling_oblique.ttf?52629e481c4d4df7a9783ed08bdecdef);
+}
+
+#appRouter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 8888;
+}
+
+#navRouter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+#blur-top-left {
+  position: absolute;
+  top: 1;
+  left: 0;
+  width: 350px;
+  height: 350px;
+  background-color: rgba(249, 158, 26, 0.25);
+  -webkit-box-shadow: 4px 10px 1000px 300px rgba(249, 158, 26, 0.25);
+          box-shadow: 4px 10px 1000px 300px rgba(249, 158, 26, 0.25);
+  border-radius: 100px;
+  z-index: -1;
+}
+
+#blur-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 350px;
+  height: 350px;
+  background-color: rgba(249, 158, 26, 0.25);
+  -webkit-box-shadow: 4px 10px 1000px 300px rgba(249, 158, 26, 0.25);
+          box-shadow: 4px 10px 1000px 300px rgba(249, 158, 26, 0.25);
+  border-radius: 100px;
+  z-index: -1;
+}
+
+.navbar-default {
+  background-color: rgba(66, 64, 65, 0.8);
+  -webkit-box-shadow: 0 3px 10px 0px black;
+          box-shadow: 0 3px 10px 0px black;
+}
+
+.navbar {
+  border-radius: 0;
+  border: none;
+}
+
+.navbar-brand {
+  padding: 10px;
+}
+
+.navbar-brand img {
+  height: 100%;
+  width: auto;
+}
+
+.navbar-nav li a {
+  color: white !important;
+  opacity: .6;
+  font-family: OverwatchFont;
+  font-size: 1.6em;
+  -webkit-transition: opacity .6s;
+  transition: opacity .6s;
+}
+
+.navbar-nav li a:hover {
+  opacity: 1;
+}
+
+.popover {
+  background-color: #000000 !important;
+  color: #f99e1a !important;
+  width: 110px !important;
+  font-size: 12px !important;
+  text-align: center !important;
+}
+
+.popover-content {
+  margin: 0px !important;
+  padding: 2px 0px 2px 0px !important;
+}
+
+.popover .arrow:after {
+  border-bottom-color: #000000 !important;
+}
+
+header {
+  width: 100%;
+  background: orange;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 10px solid white;
+}
+
+header img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+main {
+  width: 100%;
+  height: 500px;
+  background: #7f8286;
+}
+
+.search {
+  position: relative;
+}
+
+.search .search-suggestions {
+  padding: 0 10px;
+  position: absolute;
+  top: calc(100% + 25px);
+  left: 0;
+  width: 100%;
+}
+
+.search .search-suggestions .search-suggestion {
+  background: rgba(66, 64, 65, 0.8);
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  color: white !important;
+  cursor: pointer;
+  position: relative;
+}
+
+.search .search-suggestions .search-suggestion:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+
+.search .search-suggestions .search-suggestion img {
+  height: 100%;
+  margin-right: 10px;
+  border-radius: 100%;
+}
+
+.search .search-suggestions .search-suggestion i {
+  font-size: 2em;
+  margin-right: 15px;
+  margin-left: 10px;
+}
+
+.search .search-suggestions .search-suggestion h2 {
+  margin: 0;
+}
+
+.search .search-suggestions .search-suggestion:hover {
+  background: #7F8286;
+}
+
+.search .search-suggestions .search-suggestion:hover:first-child:after {
+  border-bottom-color: #7F8286;
+}
+
+.search .search-suggestions .search-suggestion:first-child:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 83%;
+  bottom: 100%;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid rgba(66, 64, 65, 0.8);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.search .search-suggestions .search-suggestion:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
+.search .search-suggestions .active {
+  background: #595e61;
+}
+
+.search .search-suggestions .active:first-child:after {
+  border-bottom-color: #595e61;
+}
+

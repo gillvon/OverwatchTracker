@@ -1,0 +1,59 @@
+@import "~compass-mixins";
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+
+// ALL COLORS
+@import "vars.sass";
+
+@font-face {
+    font-family: OverwatchFont;
+    src: url("../fonts/big_noodle_titling_oblique.ttf");
+}
+
+$orange : #f99e1a;
+$margin-offset-logo: -20px;
+
+// Universal Styling
+#appRouter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 8888;
+}
+
+#navRouter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+#blur-top-left {
+    position: absolute;
+    top: 1;
+    left: 0;
+    width:350px;height:350px;
+    background-color: rgba($color: $orange, $alpha: 0.25);
+	box-shadow: 4px 10px 1000px 300px rgba($color: $orange, $alpha: 0.25);
+    border-radius:100px;
+    z-index: -1;
+}
+
+#blur-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width:350px;height:350px;
+    background-color: rgba($color: $orange, $alpha: 0.25);
+	box-shadow: 4px 10px 1000px 300px rgba($color: $orange, $alpha: 0.25);
+    border-radius:100px;
+    z-index: -1;    
+}
+
+
+// Imports
+@import "sass/header.sass";
+
+@import 'sass/heroes.sass';
+@import "sass/searchComponent.sass";

@@ -1,0 +1,180 @@
+@font-face {
+  font-family: OverwatchFont;
+  src: url(/fonts/big_noodle_titling_oblique.ttf?52629e481c4d4df7a9783ed08bdecdef);
+}
+
+.navbar-default {
+  background-color: rgba(66, 64, 65, 0.8) !important;
+  -webkit-box-shadow: 10px 11px 10px -10px #000000;
+          box-shadow: 10px 11px 10px -10px #000000;
+}
+
+.navbar {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.navbar-nav li a {
+  color: white !important;
+  opacity: 0.6;
+  font-family: OverwatchFont;
+  font-size: 24px;
+}
+
+.navbar-form {
+  margin-right: 145px !important;
+  margin-top: 10px !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.form-group {
+  height: 28px !important;
+  width: 120% !important;
+}
+
+.form-control {
+  padding: 14px 15px !important;
+  border-radius: 6px !important;
+  height: inherit !important;
+  width: 100% !important;
+}
+
+.form-control-feedback {
+  margin-top: -1px !important;
+}
+
+.navbar-brand {
+  padding: 0px 0px 0px 145px !important;
+  margin-top: -27px;
+}
+
+@media screen and (max-width: 970px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 140px !important;
+  }
+}
+
+@media screen and (max-width: 965px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 130px !important;
+  }
+}
+
+@media screen and (max-width: 956px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 120px !important;
+  }
+}
+
+@media screen and (max-width: 946px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 110px !important;
+  }
+}
+
+@media screen and (max-width: 936px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 100px !important;
+  }
+}
+
+@media screen and (max-width: 926px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 90px !important;
+  }
+}
+
+@media screen and (max-width: 916px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 80px !important;
+  }
+}
+
+@media screen and (max-width: 906px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 70px !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 60px !important;
+  }
+}
+
+@media screen and (max-width: 886px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 50px !important;
+  }
+}
+
+@media screen and (max-width: 876px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 40px !important;
+  }
+}
+
+@media screen and (max-width: 866px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 30px !important;
+  }
+}
+
+@media screen and (max-width: 856px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 20px !important;
+  }
+}
+
+@media screen and (max-width: 846px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 10px !important;
+  }
+}
+
+@media screen and (max-width: 846px) {
+  .navbar-brand {
+    padding: 0px 0px 0px 0px !important;
+  }
+}
+
+.navbar-brand img {
+  opacity: 1 !important;
+  height: 100px !important;
+  width: 250px !important;
+}
+
+@media screen and (max-width: 846px) {
+  .navbar-brand img {
+    opacity: 1 !important;
+    height: 100px !important;
+    width: 200px !important;
+  }
+}
+
+@media screen and (max-width: 836px) {
+  .navbar-brand img {
+    opacity: 1 !important;
+    height: 100px !important;
+    width: 190px !important;
+  }
+}
+
+.popover {
+  background-color: #000000 !important;
+  color: #f99e1a !important;
+  width: 110px !important;
+  font-size: 12px !important;
+  text-align: center !important;
+}
+
+.popover-content {
+  margin: 0px !important;
+  padding: 2px 0px 2px 0px !important;
+}
+
+.popover .arrow:after {
+  border-bottom-color: #000000 !important;
+}
+

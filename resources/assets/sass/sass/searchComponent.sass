@@ -1,0 +1,68 @@
+.search
+    position: relative
+
+    .search-suggestions
+        padding: 0 10px
+        position: absolute
+        top: calc(100% + 25px)
+        left: 0
+        width: 100%
+
+        .search-suggestion
+            background: $navColor
+            width: 100%
+            height: 60px
+            display: flex
+            align-items: center
+    
+            padding: 10px
+            color: $primary-text !important
+            cursor: pointer
+            position: relative
+
+            &:not(:last-child)
+                border-bottom: 1px solid black
+
+            img
+                height: 100%
+                margin-right: 10px
+                border-radius: 100%
+            
+            i
+                font-size: 2em
+                margin:
+                    right: 15px
+                    left: 10px
+            
+            h2
+                margin: 0
+            
+            
+            &:hover 
+                background: $lightest
+            
+                &:first-child
+                    &:after
+                        border-bottom-color: $lightest
+        
+            &:first-child
+                &:after
+                    content: ''
+                    display: block
+                    position: absolute
+                    right: 83%
+                    bottom: 100%
+                    border-top: 10px solid transparent
+                    border-bottom: 10px solid $navColor
+                    border-left: 10px solid transparent
+                    border-right: 10px solid transparent
+                
+            &:last-child
+                border-radius: 0 0 5px 5px
+        
+        .active
+            background: $light
+            
+            &:first-child
+                &:after
+                    border-bottom-color: $light
