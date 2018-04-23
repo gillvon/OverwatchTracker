@@ -1,19 +1,48 @@
 header
     width: 100%
-    background: orange
     height: 500px
-    overflow: hidden
     position: relative
 
     border-bottom: 10px solid white
 
-    img
+    .video-wrapper
+        position: relative
+        overflow: hidden
         width: 100%
+        height: 100%
+
+        video
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            z-index: 1111
+    
+    .hero-abilities
         position: absolute
-        top: 50%
-        left: 50%
-        transform: translate(-50%, -50%)
-        z-index: 0
+        top: calc(100% - 45px)
+        left: 20%
+        transform: translate(-80%, -0%)
+        z-index: 8888
+
+        ul
+            list-style: none
+            padding: 0
+            margin: 0
+
+            li
+                width: 100px
+                height: 100px
+                transform: skew(-15deg)
+                border-radius: 4px
+                background: orange
+
+                img
+                    transform: skew(15deg)
+                    width: 100%
+                    height: 100%
+                    padding: 10px
+                    
     
 
 main

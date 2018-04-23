@@ -1,8 +1,9 @@
 //Importing components
-import NavBar  from './../components/Nav';
-import Index   from './../pages/Index.vue';
-import Players from './../pages/Players.vue';
-import Heroes  from './../pages/Heroes.vue';
+import NavBar   from './../components/Nav';
+import Index    from './../pages/Index.vue';
+import Players  from './../pages/Players.vue';
+import Heroes   from './../pages/Heroes.vue';
+import notFound from './../pages/notFound.vue';
 
 //Exporting router to the router.js
 export default [
@@ -29,5 +30,6 @@ export default [
             default: Heroes,
             Nav: NavBar
         }
-    },      
+    },  
+     { path: '*', component: notFound },
 ]

@@ -14,6 +14,15 @@ $orange : #f99e1a;
 $margin-offset-logo: -20px;
 
 // Universal Styling
+body {
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+}
+
 #appRouter {
     position: absolute;
     width: 100%;
@@ -55,5 +64,4 @@ $margin-offset-logo: -20px;
 // Imports
 @import "sass/header.sass";
 
-@import 'sass/heroes.sass';
 @import "sass/searchComponent.sass";

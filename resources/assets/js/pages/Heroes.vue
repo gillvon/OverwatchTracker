@@ -1,15 +1,26 @@
 <template>
-    <div>
-      <header>
-        <img :src="'/images/Wallpapers/hanamura-screenshot-003.jpg'" />
+  <div>
+    <header>
+        <div class="video-wrapper">
+          <video loop autoplay>
+            <source :src="'/images/Heroes-Abilities/Genji/video-ability.webm'" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-        <h1>SomePlayer</h1>
+        <div class="hero-abilities">
+          <ul>
+            <li>
+              <img src="/images/Heroes-Abilities/Genji/icon-right-menu.png" />
+            </li>
+          </ul>
+        </div>
 
-      </header>
-      <main>
+    </header>
+    <main>
         
-      </main>
-    </div>
+    </main>
+  </div> 
 </template>
 
 <script>
@@ -21,3 +32,9 @@
     }
   }
 </script>
+
+
+<style lang="sass" scoped>
+  @import '../../sass/sass/heroes.sass'
+</style>
+

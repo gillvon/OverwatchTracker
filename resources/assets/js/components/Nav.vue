@@ -18,9 +18,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             
-            <form class="navbar-form navbar-right search" role="search" @submit.prevent="onSubmit">
+            <form class="navbar-form navbar-right search" role="search" @submit.prevent="onSubmit" v-click-outside="reset">
                 <div class="form-group has-feedback">
-                    <input name="searchHero" type="text" class="form-control" placeholder="Search Hero..." autocomplete="off" 
+                    <input name="searchHero" ref="test" type="text" class="form-control" placeholder="Search Hero..." autocomplete="off" 
                         v-model="search"
                         @input="onChange"
                         @keydown.up="up"
@@ -30,7 +30,8 @@
                 <ul class="search-suggestions" v-show="isOpen">
                     <li class="search-suggestion" 
                         v-for="(item, index) in results.slice(0, 5)"
-                        v-bind:class="{'active': isActive(index)}">
+                        v-bind:class="{'active': isActive(index)}"
+                        @click="confirm(item.name)">
                         <img :src="'/images/Heroes/' + item.img"  />
                         <span>{{ item.name }}</span>  
                     </li>
@@ -56,6 +57,7 @@
 
 <script>
     import Vue from 'vue';
+    
     export default {
         data() {
             return {
@@ -94,13 +96,18 @@
                 current: 0
             }
         },
-
+        
+        mounted() {
+            $('#esportsData').popover();            
+        },
         methods: {
             onSubmit(){
-                this.$router.push('/Hero/'+this.search);
+                this.$router.push('/Hero/' + this.search);
+                this.reset();
+                this.search = "";            
             },
 
-            onChange(){
+            onChange() {
                 this.isOpen = true;
                 this.current = 0;
        
@@ -117,25 +124,37 @@
                 }
 
             },
-            filterResults(){
+
+            filterResults() {
                 // var test = this.items.filter(item => item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1);
                 this.results = this.items.filter(item => item.name.toLowerCase().startsWith(this.search.toLowerCase()) == true || item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1);
             },
 
-            isActive(index){
+            isActive(index) {
                 return index === this.current;
             },
 
-            up(){
+            up() {
                 if(this.current > 0){
                     this.current--
+                    this.search = this.results[this.current].name;
                 }
             },
-
-            down(){
+            down() {
                 if(this.current < 5 - 1){
                     this.current++
+                    this.search = this.results[this.current].name;                    
                 }                
+            },
+
+            confirm(name){
+                this.search = name;
+                this.onSubmit();
+            },
+
+            reset: function(){
+                this.isOpen = false;
+                this.noresults = false;
             }
         }
     }
