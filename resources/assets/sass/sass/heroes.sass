@@ -1,47 +1,98 @@
 header
     width: 100%
-    height: 500px
+    height: 85vh
     position: relative
 
     border-bottom: 10px solid white
+    
+
 
     .video-wrapper
         position: relative
         overflow: hidden
         width: 100%
         height: 100%
+        z-index: 1111
+        
 
         video
             position: absolute
             top: 50%
             left: 50%
             transform: translate(-50%, -50%)
-            z-index: 1111
     
-    .hero-abilities
+    &:hover
+        .header-bottom
+            opacity: 1
+            background: rgba(249, 158, 26, 1)
+    
+    .header-bottom
+        transition: all .6s
+        background: rgba(249, 158, 26, .8)
+        opacity: .2
         position: absolute
-        top: calc(100% - 45px)
-        left: 20%
-        transform: translate(-80%, -0%)
+        bottom: 0px
+        left: 50%
+        transform: translate(-50%, 0)
+        width: 100%
+        height: 100px
         z-index: 8888
+        display: flex
+        justify-content: space-around
+        align-items: center
 
-        ul
-            list-style: none
-            padding: 0
-            margin: 0
+        .hero-information
+            display: flex
+            justify-content: center
+            align-items: center
+            height: 100%
 
-            li
-                width: 100px
-                height: 100px
-                transform: skew(-15deg)
-                border-radius: 4px
-                background: orange
+            img
+                height: 80%
+                width: auto
+                border-radius: 100%
+                margin-right: 15px
+            h1
+                font-family: OverwatchFont
+                color: white
+                text-shadow: 1px
+                
 
-                img
-                    transform: skew(15deg)
-                    width: 100%
-                    height: 100%
-                    padding: 10px
+        .hero-abilities
+            z-index: 8888
+
+            ul
+                list-style: none
+                padding: 0
+                margin: 0
+                display: flex
+
+                li
+                    width: 80px
+                    height: 80px
+                    margin-right: 10px
+                    position: relative
+                    display: block
+                    
+                    border-radius: 100%
+                    border: 2px solid white
+
+                    background: rgba(0, 0, 0, .75)
+                    transition: background .6s
+                    cursor: pointer
+
+                    img
+                        max-width: 90%
+                        max-height: 65%
+                        position: absolute
+                        top: 50%
+                        left: 50%
+                        transform: translate(-50%, -50%)
+                        padding: 3px
+                    
+                    &:hover
+                        background: black
+                        
                     
     
 
@@ -49,3 +100,67 @@ main
     width: 100%
     height: 500px
     background: #7f8286
+
+    .top-players
+        margin-top: 30px
+
+        .top-players-title
+            transform: skew(-15deg)
+            background: white
+            border-radius: 4px
+            
+            h1
+                font-family: OverwatchFont
+                padding: 15px 25px
+                transform: skew(15deg)
+                margin: 0
+            
+        ul
+            margin-top: 50px
+            list-style-type: none
+            margin: 0
+            padding: 0
+
+            li
+                margin-top: 5px
+                transform: skew(-15deg)
+                
+                .top-player
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    background: rgba(255, 255, 255, .1)
+                    padding: 5px 25px
+                    border-radius: 4px
+                    position: relative
+
+                    .top-player-bg
+                        height: 100%
+                        background: orange
+                        position: absolute
+                        top: 0
+                        left: 0
+                        border-radius: 4px
+
+                    .top
+
+
+                    .player-info
+                        display: inline-flex
+                        flex-direction: column
+                        justify-content: center
+                        align-items: flex-start
+                        transform: skew(15deg)
+                        
+                        
+                
+                        .player-info-extra
+                            font-size: 1.6em
+                            font-family: OverwatchFont
+                            
+                            
+                    
+                    .player-stats
+                        width: 50%
+                        text-align: right
+                        transform: skew(15deg)

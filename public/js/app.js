@@ -23007,6 +23007,67 @@ function applyToTag (styleElement, obj) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
       mounted: function mounted() {
@@ -48213,7 +48274,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, "\nheader[data-v-4894e15f] {\n  width: 100%;\n  height: 500px;\n  position: relative;\n  border-bottom: 10px solid white;\n}\nheader .video-wrapper[data-v-4894e15f] {\n    position: relative;\n    overflow: hidden;\n    width: 100%;\n    height: 100%;\n}\nheader .video-wrapper video[data-v-4894e15f] {\n      position: absolute;\n      top: 50%;\n      left: 50%;\n      -webkit-transform: translate(-50%, -50%);\n              transform: translate(-50%, -50%);\n      z-index: 1111;\n}\nheader .hero-abilities[data-v-4894e15f] {\n    position: absolute;\n    top: calc(100% - 45px);\n    left: 20%;\n    -webkit-transform: translate(-80%, 0%);\n            transform: translate(-80%, 0%);\n    z-index: 8888;\n}\nheader .hero-abilities ul[data-v-4894e15f] {\n      list-style: none;\n      padding: 0;\n      margin: 0;\n}\nheader .hero-abilities ul li[data-v-4894e15f] {\n        width: 100px;\n        height: 100px;\n        -webkit-transform: skew(-15deg);\n                transform: skew(-15deg);\n        border-radius: 4px;\n        background: orange;\n}\nheader .hero-abilities ul li img[data-v-4894e15f] {\n          -webkit-transform: skew(15deg);\n                  transform: skew(15deg);\n          width: 100%;\n          height: 100%;\n          padding: 10px;\n}\nmain[data-v-4894e15f] {\n  width: 100%;\n  height: 500px;\n  background: #7f8286;\n}\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -48245,10 +48306,18 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _c("div", { staticClass: "header-bottom" }, [
+        _c("div", { staticClass: "hero-information" }, [
+          _c("img", { attrs: { src: "/images/Heroes/genji_icon.png" } }),
+          _vm._v(" "),
+          _c("h1", [_vm._v("Genji Shimada")])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
     ]),
     _vm._v(" "),
-    _c("main")
+    _vm._m(1)
   ])
 }
 var staticRenderFns = [
@@ -48262,6 +48331,85 @@ var staticRenderFns = [
           _c("img", {
             attrs: { src: "/images/Heroes-Abilities/Genji/icon-right-menu.png" }
           })
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("img", {
+            attrs: { src: "/images/Heroes-Abilities/Genji/icon-ability.png" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("img", {
+            attrs: {
+              src: "/images/Heroes-Abilities/Genji/icon-ability (1).png"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("img", {
+            attrs: {
+              src: "/images/Heroes-Abilities/Genji/icon-ability (2).png"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("img", {
+            attrs: {
+              src: "/images/Heroes-Abilities/Genji/icon-ability (3).png"
+            }
+          })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("main", [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6 top-players" }, [
+            _c("div", { staticClass: "top-players-title" }, [
+              _c("h1", [_vm._v("Top Genji Players")])
+            ]),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", [
+                _c("div", { staticClass: "top-player" }, [
+                  _c("div", {
+                    staticClass: "top-player-bg",
+                    staticStyle: { width: "40%" }
+                  }),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "top-player-extras" }, [
+                    _c("li", [_vm._v("K/D")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("Winrate")]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v("Score")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "player-info" }, [
+                    _c("div", { staticClass: "player-info-extra" }, [
+                      _c("span", [_vm._v("#1")]),
+                      _vm._v(
+                        "\n                    BestOfThePro\n                  "
+                      )
+                    ]),
+                    _vm._v("\n                  EU / PC 3000\n                ")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "player-stats" }, [
+                    _vm._v("\n                  23400\n                ")
+                  ])
+                ])
+              ])
+            ])
+          ])
         ])
       ])
     ])

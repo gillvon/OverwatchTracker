@@ -13,6 +13,10 @@
 $orange : #f99e1a;
 $margin-offset-logo: -20px;
 
+.skew{
+    transform: skew(-15deg)
+}
+
 // Universal Styling
 body {
     -webkit-touch-callout: none; 
@@ -63,5 +67,5 @@ body {
 
 // Imports
 @import "sass/header.sass";
-
+@import 'sass/heroes.sass';
 @import "sass/searchComponent.sass";
