@@ -17,6 +17,12 @@ $margin-offset-logo: -20px;
     transform: skew(-15deg)
 }
 
+
+#no-scroll::-webkit-scrollbar{
+	width: 0px;
+}
+
+
 // Universal Styling
 body {
     -webkit-touch-callout: none; 

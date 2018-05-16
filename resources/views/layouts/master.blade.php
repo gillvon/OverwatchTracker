@@ -21,7 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">    
 
 </head>
-<body>
+<body id="no-scroll">
 
     <div id="app">
        <app></app>

@@ -8,6 +8,10 @@
           transform: skew(-15deg);
 }
 
+#no-scroll::-webkit-scrollbar {
+  width: 0px;
+}
+
 body {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
