@@ -22480,7 +22480,7 @@ module.exports = Cancel;
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
         return {
-            items: [{ img: "ana_icon.png", name: 'Ana' }, { img: "bastion_icon.png", name: 'Bastion' }, { img: "diva_icon.png", name: 'Diva' }, { img: "doomfist_icon.png", name: 'Doomfist' }, { img: "genji_icon.png", name: 'Genji' }, { img: "hanzo_icon.png", name: 'Hanzo' }, { img: "junkrat_icon.png", name: 'Junkrat' }, { img: "lucio_icon.png", name: 'Lucio' }, { img: "mccree_icon.png", name: 'Mccree' }, { img: "mei_icon.png", name: 'Mei' }, { img: "mercy_icon.png", name: 'Mercy' }, { img: "moira_icon.png", name: 'Moira' }, { img: "orisa_icon.png", name: 'Orisa' }, { img: "pharah_icon.png", name: 'Pharah' }, { img: "reaper_icon.png", name: 'Reaper' }, { img: "reinhard_icon.png", name: 'Reinhard' }, { img: "roadhog_icon.png", name: 'Roadhog' }, { img: "soldier_icon.png", name: 'Soldier 76' }, { img: "sombra_icon.png", name: 'Sombra' }, { img: "symmetra_icon.png", name: 'Symmetra' }, { img: "torbjorn_icon.png", name: 'Torbjorn' }, { img: "tracer_icon.png", name: 'Tracer' }, { img: "widowmaker_icon.png", name: 'Widowmaker' }, { img: "winston_icon.png", name: 'Winston' }, { img: "zarya_icon.png", name: 'Zarya' }, { img: "zenyatta_icon.png", name: 'Zenyatta' }],
+            items: this.$store.getters.getHeroes,
             search: '',
             results: [],
             noresults: false,
@@ -22491,6 +22491,7 @@ module.exports = Cancel;
     mounted: function mounted() {
         $('#esportsData').popover();
     },
+
 
     methods: {
         onSubmit: function onSubmit() {
@@ -23068,13 +23069,67 @@ function applyToTag (styleElement, obj) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-      mounted: function mounted() {
-            var url_stringArray = window.location.pathname.split('/');
-            var searchedHero = url_stringArray[2];
-            console.log(searchedHero);
+  data: function data() {
+    return {
+      hero: '',
+      heroname: '',
+      path: 'https://d1u1mce87gyfbn.cloudfront.net/hero',
+
+      currentVid: 0
+    };
+  },
+  mounted: function mounted() {
+    var url_stringArray = window.location.pathname.split('/');
+    var searchedHero = url_stringArray[2];
+    console.log(searchedHero);
+
+    var store = this.$store.getters.getHeroes;
+    for (var i in store) {
+      if (store[i].name == searchedHero) {
+        this.hero = store[i];
+        this.currentVid = 0;
+        console.log(this.hero);
       }
+    }
+
+    $("video").preload = "auto";
+  },
+
+
+  methods: {
+    playVid: function playVid(a) {
+      this.resetVid();
+      $(".video" + a).css('opacity', 1);
+      $(".video" + a).get(0).currentTime = 0;
+      $(".video" + a).get(0).play();
+      this.currentVid = a;
+      console.log(this.currentVid);
+    },
+    nextVid: function nextVid(a) {
+      this.resetVid();
+      // Ability limit
+      if (this.currentVid + 1 > this.hero.ability_count) {
+        this.currentVid = -1;
+      }
+      this.playVid(++this.currentVid);
+    },
+    resetVid: function resetVid() {
+      $("video").css('opacity', 0);
+      $("video").get(0).pause();
+    }
+  }
+
 });
 
 /***/ }),
@@ -23096,7 +23151,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(21);
-module.exports = __webpack_require__(75);
+module.exports = __webpack_require__(76);
 
 
 /***/ }),
@@ -23113,7 +23168,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes_router__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__store_index__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Master__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Master__ = __webpack_require__(74);
 
 
 
@@ -47433,7 +47488,7 @@ if (inBrowser && window.Vue) {
         Nav: __WEBPACK_IMPORTED_MODULE_0__components_Nav__["a" /* default */]
     }
 }, {
-    path: '/Hero/:heroQuery?',
+    path: '/Hero/:heroQuery',
     name: 'hero',
     components: {
         default: __WEBPACK_IMPORTED_MODULE_3__pages_Heroes_vue__["a" /* default */],
@@ -48291,130 +48346,183 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("header", [
-      _c("div", { staticClass: "video-wrapper" }, [
-        _c("video", { attrs: { loop: "", autoplay: "" } }, [
-          _c("source", {
-            attrs: {
-              src: "/images/Heroes-Abilities/Genji/video-ability.webm",
-              type: "video/webm"
-            }
-          }),
-          _vm._v(
-            "\n          Your browser does not support the video tag.\n        "
-          )
-        ])
-      ]),
+    _c("main", [
+      _c(
+        "div",
+        { staticClass: "video-wrapper" },
+        [
+          _c(
+            "video",
+            {
+              staticClass: "video0",
+              staticStyle: { opacity: "1" },
+              attrs: { id: "start", autoplay: "autoplay" },
+              on: {
+                ended: function($event) {
+                  _vm.nextVid(0)
+                }
+              }
+            },
+            [
+              _c("source", {
+                attrs: {
+                  src: _vm.path + _vm.hero.passive_path,
+                  type: "video/webm"
+                }
+              }),
+              _vm._v(
+                "\n          Your browser does not support the video tag.\n        "
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("script", { attrs: { type: "javascript" } }, [
+            _vm._v("\n          $('start').get(0).play();\n        ")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.hero.ability_count, function(i) {
+            return _c(
+              "video",
+              {
+                class: "video" + i,
+                on: {
+                  ended: function($event) {
+                    _vm.nextVid(i)
+                  }
+                }
+              },
+              [
+                _c("source", {
+                  attrs: {
+                    src:
+                      _vm.path +
+                      _vm.hero["ability" + i + "_path"] +
+                      "/video-ability.webm",
+                    type: "video/webm"
+                  }
+                }),
+                _vm._v(
+                  "\n          Your browser does not support the video tag.\n        "
+                )
+              ]
+            )
+          })
+        ],
+        2
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "header-bottom" }, [
         _c("div", { staticClass: "hero-information" }, [
-          _c("img", { attrs: { src: "/images/Heroes/genji_icon.png" } }),
+          _c("div", { staticClass: "test" }, [
+            _c("img", { attrs: { src: _vm.path + _vm.hero.img } })
+          ]),
           _vm._v(" "),
-          _c("h1", [_vm._v("Genji Shimada")])
+          _c("h1", [_vm._v(_vm._s(_vm.hero.name))])
         ]),
         _vm._v(" "),
-        _vm._m(0)
-      ])
-    ]),
-    _vm._v(" "),
-    _vm._m(1)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "hero-abilities" }, [
-      _c("ul", [
-        _c("li", [
-          _c("img", {
-            attrs: { src: "/images/Heroes-Abilities/Genji/icon-right-menu.png" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: { src: "/images/Heroes-Abilities/Genji/icon-ability.png" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src: "/images/Heroes-Abilities/Genji/icon-ability (1).png"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src: "/images/Heroes-Abilities/Genji/icon-ability (2).png"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: {
-              src: "/images/Heroes-Abilities/Genji/icon-ability (3).png"
-            }
-          })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("main", [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-6 top-players" }, [
-            _c("div", { staticClass: "top-players-title" }, [
-              _c("h1", [_vm._v("Top Genji Players")])
-            ]),
-            _vm._v(" "),
-            _c("ul", [
-              _c("li", [
-                _c("div", { staticClass: "top-player" }, [
-                  _c("div", {
-                    staticClass: "top-player-bg",
-                    staticStyle: { width: "40%" }
+        _c("div", { staticClass: "hero-abilities" }, [
+          _c(
+            "ul",
+            [
+              _c(
+                "li",
+                {
+                  on: {
+                    click: function($event) {
+                      _vm.playVid(0)
+                    }
+                  }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src:
+                        _vm.path +
+                        "/" +
+                        _vm.hero.name.toLowerCase() +
+                        "/icon-right-menu.png"
+                    }
                   }),
                   _vm._v(" "),
-                  _c("ul", { staticClass: "top-player-extras" }, [
-                    _c("li", [_vm._v("K/D")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Winrate")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("Score")])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "player-info" }, [
-                    _c("div", { staticClass: "player-info-extra" }, [
-                      _c("span", [_vm._v("#1")]),
-                      _vm._v(
-                        "\n                    BestOfThePro\n                  "
+                  _c("div", { staticClass: "ability-desc" }, [
+                    _c("header", [
+                      _c("h2", [_vm._v(_vm._s(_vm.hero["name"]))]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        [
+                          _vm._l(_vm.hero.difficulty, function(i) {
+                            return _c("i", { staticClass: "fas fa-star" })
+                          }),
+                          _vm._v(" "),
+                          _vm.hero.difficulty < 3
+                            ? _c("i", { staticClass: "far fa-star" })
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.hero.difficulty < 2
+                            ? _c("i", { staticClass: "far fa-star" })
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.hero.difficulty < 1
+                            ? _c("i", { staticClass: "far fa-star" })
+                            : _vm._e()
+                        ],
+                        2
                       )
                     ]),
-                    _vm._v("\n                  EU / PC 3000\n                ")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "player-stats" }, [
-                    _vm._v("\n                  23400\n                ")
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.hero["passive_name"]))])
                   ])
-                ])
-              ])
-            ])
-          ])
+                ]
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.hero.ability_count, function(i) {
+                return _c(
+                  "li",
+                  {
+                    on: {
+                      click: function($event) {
+                        _vm.playVid(i)
+                      }
+                    }
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src:
+                          _vm.path +
+                          _vm.hero["ability" + i + "_path"] +
+                          "/icon-ability.png"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ability-desc" }, [
+                      _c("header", [
+                        _c("h2", [
+                          _vm._v(_vm._s(_vm.hero["ability" + i + "_name"]))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("hr"),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(_vm._s(_vm.hero["ability" + i + "_desc"]))
+                      ])
+                    ])
+                  ]
+                )
+              })
+            ],
+            2
+          )
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 if (false) {
@@ -48507,17 +48615,21 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_auth__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_Heroes__ = __webpack_require__(73);
 
 
+
+
+// Heroes
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 	modules: {
-		auth: __WEBPACK_IMPORTED_MODULE_2__modules_auth__["a" /* default */]
-	},
-	strict: true
+		auth: __WEBPACK_IMPORTED_MODULE_2__modules_auth__["a" /* default */],
+		heroes: __WEBPACK_IMPORTED_MODULE_3__modules_Heroes__["a" /* default */]
+	}
 }));
 
 /***/ }),
@@ -49549,9 +49661,78 @@ var getters = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+var state = {
+    heroes: [{ img: "/ana/icon-portrait.png",
+        name: 'Ana',
+
+        ability1_name: 'Biotic Rifle',
+        ability2_name: 'Sleep Dart',
+        ability3_name: 'Biotic Grenade',
+        ability4_name: 'Nano Boost',
+
+        passive_name: 'Ana’s versatile arsenal allows her to affect heroes all over the battlefield. Her Biotic Rifle rounds and Biotic Grenades heal allies and damage or impair enemies; her sidearm tranquilizes key targets, and Nano Boost gives one of her comrades a considerable increase in power.',
+        ability1_desc: 'Ana’s rifle shoots darts that can restore health to her allies or deal ongoing damage to her enemies. She can use the rifle’s scope to zoom in on targets and make highly accurate shots.',
+        ability2_desc: 'Ana fires a dart from her sidearm, rendering an enemy unconscious (though any damage will rouse them).',
+        ability3_desc: 'Ana tosses a biotic bomb that deals damage to enemies and heals allies in a small area of effect. Affected allies briefly receive increased healing from all sources, while enemies caught in the blast cannot be healed for a few moments.',
+        ability4_desc: 'After Ana hits one of her allies with a combat boost, they deal more damage, and take less damage from enemies’ attacks.',
+
+        passive_path: '/ana/intro-video.webm',
+        ability1_path: '/ana/ability-biotic-rifle',
+        ability2_path: '/ana/ability-sleep-dart',
+        ability3_path: '/ana/ability-biotic-grenade',
+        ability4_path: '/ana/ability-stim-boost',
+
+        ability_count: 4,
+        difficulty: 3,
+        role: 'Support'
+    }, { img: "/bastion/icon-portrait.png",
+        name: 'Bastion',
+
+        ability1_name: 'Configuration: Recon',
+        ability2_name: 'Configuration: Sentry',
+        ability3_name: 'Reconfigure',
+        ability4_name: 'Self-Repair',
+        ability5_name: 'Configuration: Tank',
+
+        passive_name: 'Repair protocols and the ability to transform between stationary Assault, mobile Recon and devastating Tank configurations provide Bastion with a high probability of victory.',
+        ability1_desc: 'In Recon mode, Bastion is fully mobile, outfitted with a submachine gun that fires steady bursts of bullets at medium range.',
+        ability2_desc: 'In Sentry mode, Bastion is a stationary powerhouse equipped with a gatling gun capable of unleashing a hail of bullets. The gun\'s aim can be "walked" across multiple targets, dealing devastating damage at short to medium range.',
+        ability3_desc: 'Bastion transforms between its two primary combat modes to adapt to battlefield conditions.',
+        ability4_desc: 'Bastion restores its health; it cannot fire weapons while the repair process is in effect.',
+        ability5_desc: 'In Tank mode, Bastion extends wheeled treads and a powerful long-range cannon. The cannon’s explosive shells demolish targets in a wide blast radius, but Bastion can only remain in this mode for a limited time.',
+
+        passive_path: '/bastion/intro-video.webm',
+        ability1_path: '/bastion/ability-config-recon',
+        ability2_path: '/bastion/ability-config-sentry',
+        ability3_path: '/bastion/ability-reconfigure',
+        ability4_path: '/bastion/ability-self-repair',
+        ability5_path: '/bastion/ability-config-tank',
+
+        ability_count: 5,
+        difficulty: 1,
+        role: 'Defense'
+    }, { img: "diva_icon.png", name: 'Diva' }, { img: "doomfist_icon.png", name: 'Doomfist' }, { img: "genji_icon.png", name: 'Genji' }, { img: "hanzo_icon.png", name: 'Hanzo' }, { img: "junkrat_icon.png", name: 'Junkrat' }, { img: "lucio_icon.png", name: 'Lucio' }, { img: "mccree_icon.png", name: 'Mccree' }, { img: "mei_icon.png", name: 'Mei' }, { img: "mercy_icon.png", name: 'Mercy' }, { img: "moira_icon.png", name: 'Moira' }, { img: "orisa_icon.png", name: 'Orisa' }, { img: "pharah_icon.png", name: 'Pharah' }, { img: "reaper_icon.png", name: 'Reaper' }, { img: "reinhard_icon.png", name: 'Reinhard' }, { img: "roadhog_icon.png", name: 'Roadhog' }, { img: "soldier_icon.png", name: 'Soldier 76' }, { img: "sombra_icon.png", name: 'Sombra' }, { img: "symmetra_icon.png", name: 'Symmetra' }, { img: "torbjorn_icon.png", name: 'Torbjorn' }, { img: "tracer_icon.png", name: 'Tracer' }, { img: "widowmaker_icon.png", name: 'Widowmaker' }, { img: "winston_icon.png", name: 'Winston' }, { img: "zarya_icon.png", name: 'Zarya' }, { img: "zenyatta_icon.png", name: 'Zenyatta' }]
+};
+
+var getters = {
+    getHeroes: function getHeroes(state) {
+        return state.heroes;
+    }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    state: state,
+    getters: getters
+});
+
+/***/ }),
+/* 74 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_Master_vue__ = __webpack_require__(19);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2c56bb99_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Master_vue__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2c56bb99_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Master_vue__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(1);
 var disposed = false
 /* script */
@@ -49599,7 +49780,7 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49630,7 +49811,7 @@ if (false) {
 }
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

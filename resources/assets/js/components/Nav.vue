@@ -61,34 +61,7 @@
     export default {
         data() {
             return {
-                items: [
-                        {img: "ana_icon.png",           name: 'Ana'}, 
-                        {img: "bastion_icon.png",       name: 'Bastion'},
-                        {img: "diva_icon.png",          name: 'Diva'}, 
-                        {img: "doomfist_icon.png",      name: 'Doomfist'},
-                        {img: "genji_icon.png",         name: 'Genji'}, 
-                        {img: "hanzo_icon.png",         name: 'Hanzo'},
-                        {img: "junkrat_icon.png",       name: 'Junkrat'}, 
-                        {img: "lucio_icon.png",         name: 'Lucio'},
-                        {img: "mccree_icon.png",        name: 'Mccree'}, 
-                        {img: "mei_icon.png",           name: 'Mei'},
-                        {img: "mercy_icon.png",         name: 'Mercy'}, 
-                        {img: "moira_icon.png",         name: 'Moira'},
-                        {img: "orisa_icon.png",         name: 'Orisa'}, 
-                        {img: "pharah_icon.png",        name: 'Pharah'},
-                        {img: "reaper_icon.png",        name: 'Reaper'}, 
-                        {img: "reinhard_icon.png",      name: 'Reinhard'},
-                        {img: "roadhog_icon.png",       name: 'Roadhog'}, 
-                        {img: "soldier_icon.png",       name: 'Soldier 76'},
-                        {img: "sombra_icon.png",        name: 'Sombra'}, 
-                        {img: "symmetra_icon.png",      name: 'Symmetra'},
-                        {img: "torbjorn_icon.png",      name: 'Torbjorn'},
-                        {img: "tracer_icon.png",        name: 'Tracer'},
-                        {img: "widowmaker_icon.png",    name: 'Widowmaker'},
-                        {img: "winston_icon.png",       name: 'Winston'},
-                        {img: "zarya_icon.png",         name: 'Zarya'},
-                        {img: "zenyatta_icon.png",      name: 'Zenyatta'},
-                        ],
+                items: this.$store.getters.getHeroes,
                 search: '',
                 results: [],
                 noresults: false,
@@ -98,13 +71,14 @@
         },
         
         mounted() {
-            $('#esportsData').popover();            
+            $('#esportsData').popover();      
         },
+
         methods: {
             onSubmit(){
                 this.$router.push('/Hero/' + this.search);
                 this.reset();
-                this.search = "";            
+                this.search = "";
             },
 
             onChange() {

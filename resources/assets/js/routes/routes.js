@@ -24,12 +24,12 @@ export default [
         } 
     },
     {
-        path: '/Hero/:heroQuery?',
+        path: '/Hero/:heroQuery',
         name: 'hero',
         components: { 
             default: Heroes,
             Nav: NavBar
         }
     },  
-     { path: '*', component: notFound },
+    { path: '*', component: notFound },
 ]
