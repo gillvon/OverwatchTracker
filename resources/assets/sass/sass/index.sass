@@ -37,11 +37,26 @@ ul
         width: 80%
         margin: 0 auto
 
-//Styling voor player search
+
+// Styling voor video
+    .video-container
+        position: absolute
+        top: 0
+        bottom: 0
+        width: 100%
+        height: 100%
+        overflow: 
+        
+        video
+            min-width: 100%
+            min-height: 100%
+
+// Styling voor player search
 .playerSearch-wrapper-focus
     box-shadow: 0 0 5px $secondary !important
     border: 1px solid $secondary !important
-    
+    transition: border 5ms linear, box-shadow 5ms linear
+        
 .playerSearch-wrapper
     width: 100%
     background-color: #ffffff
@@ -49,7 +64,7 @@ ul
     border-radius: 4px  
 
     .searchPlayer
-        width: 255px
+        width: auto
         border: none
         
     #searchIcon-wrapper
@@ -66,6 +81,58 @@ ul
         .searchPlayer-icon
             width: auto
             margin-right: 10px
+    
+    .search-suggestions
+        position: absolute
+        display: block
+        width: 100%
+        height: auto
+        margin-top: 15px   
+        padding: 0px
+
+        li
+            background: $navColor
+            padding:
+                top: 10px
+                bottom: 10px
+                left: 0px
+                right: 0px
+
+            color: $primary-text !important
+            cursor: pointer
+            position: relative
+
+            &:not(:last-child)
+                border-bottom: 1px solid black
+            
+            &:hover 
+                background: $lightest
+            
+                &:nth-child(2), &:first-child
+                    &:after
+                        border-bottom-color: $lightest
+        
+            &:nth-child(2), &:first-child
+                &:after
+                    content: ''
+                    display: block
+                    position: absolute
+                    right: 91%
+                    bottom: 100%
+                    border-top: 10px solid transparent
+                    border-bottom: 10px solid $navColor
+                    border-left: 10px solid transparent
+                    border-right: 10px solid transparent
+                
+            &:last-child
+                border-radius: 0 0 5px 5px
+        
+        .active
+            background: $light
+            
+            &:nth-child(2)
+                &:after
+                    border-bottom-color: $light
 
     .regionPlatform-button  
         width: auto
@@ -102,7 +169,6 @@ ul
             border-left: 10px solid transparent
             border-right: 10px solid transparent
 
-
         .region-list 
             float: left
             padding-left: 15px
@@ -111,20 +177,36 @@ ul
                 padding-bottom: 7px
 
             li:first-child
-                padding-top: 5px
+                padding-top: 8px
 
             li:last-child
                 padding-bottom: 0px
 
+        .vertical-hr-wrapper
+            position: absolute
+            top: 0
+            bottom: 0
+            right: 0
+            left: 51%
+            height: 80%
+            z-index: -9999
+            margin: auto
+
+            .vertical-hr
+                display: block
+                width: 1px
+                height: 100%
+                background: white
+                
         .platform-list 
-            float: rigth
+            float: right
             padding-left: 30px
 
             li
                 padding-bottom: 7px
             
             li:first-child
-                padding-top: 5px
+                padding-top: 8px
 
             li:last-child
                 padding-bottom: 0px

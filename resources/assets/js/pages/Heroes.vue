@@ -152,6 +152,6 @@
 
 
 <style lang="sass" scoped>
-
+  @import '../../sass/sass/heroes.sass'
 </style>
 

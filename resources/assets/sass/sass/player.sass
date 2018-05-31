@@ -1,0 +1,497 @@
+@import '../vars.sass'
+
+ul
+    margin-bottom: 14px !important
+    
+
+.button
+    width: 95px
+    height: 25px
+    border-radius: 3px
+    cursor: pointer
+    pointer-events: initial !important
+    background-color: $button-color
+    // color: rgba(255, 255, 255, .6)
+    color: white
+    display: inline-block !important
+    margin: 0 
+    text-align: center
+    font-size: 18px
+    // transition: color .8s
+
+    &:hover
+       color: rgba(255, 255, 255, 1)
+
+#players-body
+    background-color: $primBackground-color
+    width: 100%
+    font-family: OverwatchFont
+
+    #background
+        height: 50vh 
+        background-image: url('../../img/Wallpapers/hanamura-screenshot-003.jpg')
+        background-size: cover
+        background-repeat: no-repeat
+        background-position: 50% 68%
+
+        border-bottom: 7px solid white
+
+        #icon-container
+            position: absolute
+            border: 7px solid white
+            border-radius: 7px
+            -moz-background-clip: padding 
+            -webkit-background-clip: padding
+            background-clip: padding-box
+            bottom: 45%
+            left: 12%
+
+            #player-icon
+                width: 125px
+                height: 125px
+
+        #name-container
+            position: absolute
+            color: white
+            bottom: 52%
+            left: 20%
+
+            p
+                margin: 0 
+                padding: 0 
+
+            #name
+                font-size: 64px
+                line-height: 1em
+
+            #update-time
+                font-size: 18px
+
+            #level-id-container
+                position: absolute
+                top: 10%
+                margin-left: 5px
+                left: 100%
+                width: auto
+                // every 30 px -2%
+
+                #level
+                    background-color: #b86a58
+                    border-radius: 5px
+                    height: 50%
+                    display: flex
+                    position: relative
+
+                    p
+                        padding-left: 5px   
+                        margin-right: 5px
+                
+                #star-container
+                    background-color: white
+                    width: auto
+                    border-radius: 5px
+                    display: flex   
+                    height: 16px
+                    margin-top: 2px
+                    margin-right: 2px
+
+                    .fa-star
+                        color: #b86a58
+                        padding: 2px
+                        font-size: 13px
+
+                    .silver
+                        color: #c0c0c0 !important
+
+                    .gold 
+                        color: #ffd700 !important
+                            
+                    
+                #id
+                    margin-top: 2px
+                    font-size: 18px
+                    color: #948d87
+        
+        #rank-container
+            position: absolute
+            bottom: 30%
+            left: 13%
+            text-align: center
+
+            #rank-img
+                width: 100px
+                height: 100px
+
+            #rank-number
+                margin-top: -15px
+                font-size: 36px
+                color: white    
+
+        #hero-alter
+            position: absolute
+            bottom: 48%
+            right: 12%
+            border-radius: 5px
+            box-shadow: 1px 3px 10px black
+            height: 50px
+            width: 350px
+            z-index: 9999
+
+            .hero-parts
+                margin: 0
+                padding: 0
+
+            #hero-part1
+                height: inherit
+                width: 35%
+                float: left
+                background-color: $darkergrey
+                border-radius: 5px 0px 0px 5px
+                text-align: center
+
+                &:after
+                    content: ''
+                    display: block
+                    position: absolute
+                    left: 35% 
+                    top: 0
+                    border-top: 25px solid transparent
+                    border-left: 31px solid $darkergrey
+                    border-bottom: 25px solid transparent
+
+                p
+                    color: white
+                    font-size: 28px 
+                    line-height: 50px
+
+            #hero-part2
+                height: inherit
+                width: 65%
+                float: right
+                background-color: $secondary
+                border-radius: 0px 5px 5px 0px
+
+            #hero-img-container
+                position: absolute
+                left: 35%
+                top: -610%
+                
+        #pull-tab-container
+            position: absolute
+            height: 30px
+            width: 35px
+            bottom: 44.8%
+            right: 19%
+            z-index: 8888
+
+            #pull-tab
+                position: absolute
+                display: inline-block
+                width: inherit
+                height: inherit
+                background-color: $secondary
+                border-radius: 0px 0px 5px 5px
+                box-shadow: 2px 4px 10px black
+                z-index: 1
+                cursor: pointer
+                pointer-events: initial !important
+
+                .line-long
+                    background-color: white
+                    display: inline-block
+                    height: 2px
+                    width: 20px
+                    position: absolute
+                    left: 20%
+
+                    &:first-child
+                        top: 21%
+
+                    &:nth-child(2)
+                        top: 47%
+
+                #line-short
+                    background-color: white
+                    display: inline-block                
+                    height: 2px
+                    width: 12px
+                    position: absolute
+                    top: 70%
+                    left: 32%
+
+    #buttons-container
+        margin-left: 4px
+        margin-top: 10px
+        width: 20%
+
+        #refresh-button
+            
+            #refresh-loader-text
+                margin: 0px
+                padding: 0px
+
+            #refresh-loader
+                width: 18px
+                height: 18px
+
+        #real-rank-button
+            margin-left: 10px    
+    
+    #stats-container
+        margin-top: 20px
+
+        p
+            color: white
+            font-size: 28px
+
+        .stats
+            position: relative
+            display: inline-block
+            background-color: $button-color
+            width: 200px
+            height: 110px
+            overflow: hidden
+            margin-right: 40px
+        
+        .stats-img
+            position: absolute
+            top: -15%
+            left: -10%
+            opacity: .2
+            width: 125px
+            height: 125px
+
+        .stats-number
+            position: absolute
+            bottom: 5%
+            right: 5%
+            font-size: 48px
+
+        .stats-info
+            position: absolute
+            bottom: -3%
+            right: 5%
+            font-size: 16px
+
+    .title
+        width: 308px
+        height: 35px
+        color: white
+        font-size: 18px
+        background-color: $button-color
+        border-radius: 5px
+        box-shadow: 1px 3px 10px black
+        margin-left: -4px
+
+        #roles-title, #game-stats-title
+            width: 54.5px
+            height: 35px
+            border-radius: 5px 0px 0px 5px        
+            background-color: $darkergrey
+
+            &:after
+                content: ''
+                display: block
+                position: absolute
+                left: 30.3% 
+                top: 0
+                border-top: 17.5px solid transparent
+                border-left: 15px solid $darkergrey
+                border-bottom: 17.5px solid transparent
+
+            p
+                margin-left: 10px
+                line-height: 35px
+
+        #game-stats-title
+            width: 125px
+
+            &:after
+                content: ''
+                display: block
+                position: absolute
+                left: 53.8% 
+                top: 0
+                border-top: 17.5px solid transparent
+                border-left: 15px solid $darkergrey
+                border-bottom: 17.5px solid transparent
+
+    #hero-container
+        margin-top: 50px
+        width: 81.7%
+
+        p
+            color: white
+            font-size: 28px
+
+        #hero-comparison
+            list-style: none
+            padding:
+                top: 0px
+                left: 0px
+                bottom: 0px
+                right: 0px
+
+            li 
+                margin-bottom: 8px 
+
+            .hero-comparison-name-wrapper
+                height: 42px
+                text-align: right
+                width: 95px
+                display: inline-block
+                background-color: $button-color
+                margin-right: 5px 
+
+                .hero-comparison-name
+                    font-size: 20px
+                    margin-bottom: 0px !important
+                    line-height: 45px
+                    margin-right: 5px                    
+
+            .hero-comparison-img
+                width: 45px
+                margin-bottom: 5px
+
+            .progress
+                width: 83.4%
+                display: inline-block
+                margin: 
+                    top: 0px
+                    right: 0px
+                    left: 5px
+                    bottom: 0px !important
+                height: 45px
+                vertical-align: middle
+                border-radius: 0px !important
+                background-color: $button-color
+
+                .hero-comparison-bar
+                    // width: 0%
+                    // transition: width .6s ease-in-out 5s
+
+            #view-more
+                background-color: $button-color
+                height: 50px
+                border-radius: 0px 0px 5px 5px
+                cursor: pointer
+                pointer-events: initial !important
+
+                p
+                    text-align: center
+                    font-size: 26px
+                    line-height: 51px
+                    
+
+        
+    #overview-container
+
+        #roles-container
+            width: 300px
+            height: auto
+            position: absolute
+            top: 60%
+            right: 15%
+
+            #roles
+                list-style: none
+                background-color: $button-color
+                width: 300px
+                padding: 0px
+                margin-left: 40px
+                border-radius: 0px 0px 5px 5px
+                height: 230px
+                
+                .role-info
+                    width: 300px
+                    color: white
+                    font-size: 24px
+                    margin-top: 8px
+
+                    .role-icons
+                        width: 50px
+                        height: 40px
+
+            #role-stats
+                position: absolute
+                list-style: none
+                top: 19%
+                right: -6%
+
+                li
+                    color: white
+                    font-size: 16px
+
+                .role-stats-games
+                    margin-top: 4.5px
+
+                    &:first-child
+                        margin-top: 2px
+
+                .role-stats-winrate
+                    margin-top: -3px
+
+        #game-stats-container
+            width: 300px
+            height: auto
+            position: absolute
+            top: 88%
+            right: 15%
+
+            #game-stats
+                list-style: none
+                background-color: $button-color
+                width: 300px
+                padding: 0px
+                margin-left: 40px
+                height: 230px
+                margin-bottom: 14px !important
+
+                .stats-info-li
+                    background-color: $button-color
+
+                    &:last-child
+                        border-radius: 0px 0px 5px 5px
+
+                    &:nth-child(1), &:nth-child(3), &:nth-child(5)
+                            background-color: $darkgrey
+                            padding: .1px
+
+                            p 
+                                margin-bottom: 1.9px
+                                padding-bottom: 1px
+
+                    p
+                        width: 300px
+                        color: white
+                        font-size: 24px
+                        margin:
+                            top: 8px
+                            left: 8px
+                            right: 0px
+                            bottom: 0px
+                        padding-bottom: 1px
+
+            #stats-time
+                position: absolute
+                list-style: none
+                top: 19%
+                right: -6%
+                margin-bottom: 14px !important
+
+                .stats-time-played
+                    color: white
+                    font-size: 20px
+
+                    &:nth-child(1)
+                        margin-bottom: 14px
+
+                    &:nth-child(2)
+                        margin-bottom: 16px
+
+                    &:nth-child(3)
+                        margin-bottom: 15px
+                    
+                    &:nth-child(4)
+                        margin-bottom: 17px
+                    

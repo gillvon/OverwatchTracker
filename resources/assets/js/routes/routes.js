@@ -1,11 +1,11 @@
-//Importing components
+// Importing components
 import NavBar   from './../components/Nav';
 import Index    from './../pages/Index.vue';
 import Players  from './../pages/Players.vue';
 import Heroes   from './../pages/Heroes.vue';
 import notFound from './../pages/notFound.vue';
 
-//Exporting router to the router.js
+// Exporting router to the router.js
 export default [
     {
         path: '/',
@@ -16,7 +16,7 @@ export default [
         }
     },
     {
-        path: '/Player/:playerQuery',
+        path: '/Player/:region/:platform/:player',
         name: 'player',
         components: {
             default: Players,
@@ -24,12 +24,12 @@ export default [
         } 
     },
     {
-        path: '/Hero/:heroQuery',
+        path: '/Hero/:hero?',
         name: 'hero',
         components: { 
             default: Heroes,
             Nav: NavBar
         }
     },  
-    { path: '*', component: notFound },
+     { path: '*', component: notFound },
 ]

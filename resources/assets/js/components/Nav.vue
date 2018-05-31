@@ -100,7 +100,6 @@
             },
 
             filterResults() {
-                // var test = this.items.filter(item => item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1);
                 this.results = this.items.filter(item => item.name.toLowerCase().startsWith(this.search.toLowerCase()) == true || item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1);
             },
 

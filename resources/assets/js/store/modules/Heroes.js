@@ -59,6 +59,8 @@ const state = {
             ability3_name: 'Boostser', 
             ability4_name: 'Defense Matrix',
             ability5_name: 'Micro Missiles',
+            ability6_name: 'Self Destruct',
+            ability7_name: 'Call Mech',
             
             passive_name:  'Repair protocols and the ability to transform between stationary Assault, mobile Recon and devastating Tank configurations provide Bastion with a high probability of victory.',
             ability1_desc: 'In Recon mode, Bastion is fully mobile, outfitted with a submachine gun that fires steady bursts of bullets at medium range.',
