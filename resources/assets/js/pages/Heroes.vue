@@ -99,7 +99,7 @@
         return {
           hero: '',
           heroname: '',
-          path: 'https://d1u1mce87gyfbn.cloudfront.net/hero',
+          path: this.$store.getters.getHeroesPath,
 
           currentVid: 0,
         }
