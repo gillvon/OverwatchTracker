@@ -9,7 +9,7 @@
           <script type="javascript">
             $('start').get(0).play();
           </script>
-          <video v-for="i in hero.ability_count" :class="'video' + i" @ended="nextVid(i)">
+          <video v-for="i in hero.ability_count" :class="'video' + i" @ended  ="nextVid(i)">
             <source :src="path + hero['ability' + i + '_path'] + '/video-ability.webm'" type="video/webm">
             Your browser does not support the video tag.
           </video>
